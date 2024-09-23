@@ -47,13 +47,6 @@ Resources:
       Role:
         Ref: LambdaRoleARN
       Tracing: Active
-      VpcConfig:
-        SecurityGroupIds:
-        - Ref: SecurityGroupId
-        SubnetIds:
-          Fn::Split:
-          - ','
-          - Ref: VpcSubnetIds
       Layers:
       - Ref: libs
       Tags:
@@ -67,7 +60,7 @@ Resources:
       Description: Dependencies for the blank-python sample app.
       ContentUri: package/.
       CompatibleRuntimes:
-      - python3.8
+      - python3.12
   LambdaFunctionLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
