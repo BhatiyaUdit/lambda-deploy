@@ -37,3 +37,4 @@ jobs:
     - name: Get Credentials   
       run: |
         aws s3 ls
+        ./build-layer.sh
