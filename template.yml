@@ -75,3 +75,18 @@ Resources:
         Value:
           Ref: ComponentName
     DependsOn: LambdaFunction
+  MyFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !Ref LambdaFunction
+      AuthType: NONE
+      Cors:
+        AllowOrigins:
+         - '*'
+  LambdaResourcePolicy:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunctionUrl
+      FunctionName: !Ref LambdaFunction
+      FunctionUrlAuthType: 'NONE'
+      Principal: '*'
