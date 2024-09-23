@@ -34,3 +34,6 @@ jobs:
         aws-access-key-id: AKIAQLVQQ4P3GLYVSUOQ
         aws-secret-access-key: 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
         aws-region: us-east-1
+    - name: Get Credentials   
+      run: |
+        aws s3 ls
